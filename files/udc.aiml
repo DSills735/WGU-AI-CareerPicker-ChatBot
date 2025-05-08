@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml>
+    <template>
+        Welcome! Please type 'I want to take a quiz' to begin speaking with me as I am designed to help you find a career in Computer Science
+    </template>
   <category>
     <pattern>*</pattern>
-    <template>I do not have an answer for this. Please type 'I want to take a quiz' to begin speaking with me as I am designed to help you find a career in Computer Science. </template>
+    <template>Welcome! Please type 'I want to take a quiz' to begin speaking with me as I am designed to help you find a career in Computer Science. </template>
   </category>
 
     <category>
@@ -21,7 +24,8 @@
             <postback>EXIT</postback>
         </button>
    
-        </template> </category>
+        </template> 
+        </category>
         <category>
             <pattern>EXIT</pattern>
             <template>
@@ -42,6 +46,7 @@
             <postback>individual sports</postback></button>
             </template>
         </category>
+        
         <category>
             <pattern>team sports</pattern>
             <template>
@@ -53,19 +58,38 @@
                 <postback>defense</postback></button>
             </template>
         </category>
+        
         <category>
             <pattern>individual sports</pattern>
             <template>
                 This tells me you are more detail oriented. You like to react to the play ahead of you. Do you agree?
             <button> 
             <text>Yes</text>
-            <postback>YesNextQuestion</postback>
+            <postback>YNQ</postback>
+            </button>
+            <button>
+                <text>No</text>
+                <postback>NoNextQuestion</postback>
+            </button>
+            </template>
+        </category>
+        
+        <!-- Offense-->
+         <category>
+            <pattern>offense</pattern>
+            <template>
+                You prefer to go on the attack. You are more strategic, and are a good planner. Is this true?
+            <button> 
+            <text>Yes</text>
+            <postback>YNQ</postback>
             </button>
             <button><text>No</text>
             <postback>NoNextQuestion</postback>
             </button>
             </template>
         </category>
+        
+        <!-- Defense -->
         <category>
             <pattern>defense</pattern>
             <template>
@@ -73,7 +97,7 @@
                 Does this sound like you?
             <button> 
             <text>Yes</text>
-            <postback>YesNextQuestion</postback>
+            <postback>YNQ</postback>
             </button>
             <button><text>No</text>
             <postback>NoNextQuestion</postback>
@@ -87,52 +111,53 @@
             <template>This tells me you would prefer to attack. You like to strategize and are a planner. 
             Do you agree?
            <button><text>Yes</text>
-            <postback>YesNextQuestion</postback>
+            <postback>YNQ</postback>
             </button>
             <button><text>No</text>
             <postback>NoNextQuestion</postback>
             </button></template>
         </category>
+        
         <category>
             <pattern>against the game</pattern>
             <template>This tells me that you are mentally tough, and have great problem solving abilities. 
             I believe that you would be a great at IT Support! Do you agree? Type 'Yes' or 'No'. 
             <button> 
             <text>Yes</text>
-            <postback>YesNextQuestion</postback>
+            <postback>YNQ</postback>
             </button>
             <button><text>No</text>
             <postback>NoNextQuestion</postback>
             </button>
             </template>
         </category>
-        <!-- YES FINISH OUTCOME-->
-        <category>
-            <pattern>YesFinish</pattern>
-            <template>Congatulations, you have been matched with a career! If you would like more information, please respond with your match!</template>
-        </category>
+        
+       
         <!-- NO NEXT QUESTION OUTCOME -->
         <category>
             <pattern>NoNextQuestion</pattern>
             <template>
                 Thats too bad. I will ask one more question. Would you rather take art class, or woodshop? Type 'Art' or 'Woodshop'.
+                <button><text>Art</text>
+        <postback>ART</postback></button>
+        <button><text>Woodshop</text>
+        <postback>SHOP</postback></button>
             </template>
         </category>
+        
         <!-- YES NEXT QUESTION -->
         <category>
-            <pattern>YesNextQuestion</pattern>
-        </category>
-        <template>Are you more interested in social studies, or math?
+            <pattern>YNQ</pattern>
+        <template>Good to know. Are you more interested in social studies, or math?
         <button><text>Social Studies</text>
         <postback>SS</postback></button>
         <button><text>Math</text>
         <postback>math</postback></button>
         </template>
+        </category>
         
-        <!-- NO, NO MATCH FOUND-->
-        <pattern>NoMatchDetected</pattern>
-        <template>We are very sorry that we could not find you a match. If you would like to try again, please type 'I want to take a quiz'.</template>
         
+        <!-- Social Studies Path-->
         <category>
             <pattern>SS</pattern>
             <template>
@@ -146,21 +171,116 @@
             </button>
             </template>
         </category>
+        
+        <!-- Math Path-->
         <category>
             <pattern>Math</pattern>
             <template>
-                You stated that you like math. I have matched you with Software Engineering! Do you want to learn more about this field?
+                You stated that you like math. I have matched you with Data Science! Do you want to learn more about this field?
+                <button> 
+            <text>Yes</text>
+            <postback>DATA</postback>
+            </button>
+            <button><text>No</text>
+            <postback>EXITQ</postback>
+            </button>
+            </template>
+        </category>
+        
+        <!-- Doctor Path-->
+        <category>
+            <pattern>DR</pattern>
+            <template>You would want to be a doctor, very noble! Given your answers, I have matched you as an IT Support Specialist. Do you want more information on this field?
+            <button> 
+            <text>Yes</text>
+            <postback>IT</postback>
+            </button>
+            <button><text>No</text>
+            <postback>EXITQ</postback>
+            </button></template>
+        </category>
+        
+        <!-- Art Path -->
+        <category>
+            <pattern>ART</pattern>
+            <template>
+                You are creative, and think outside the box well. For this reason you have been matched with Web Development. Would you like to know more about this field?
+                <button> 
+            <text>Yes</text>
+            <postback>HTML</postback>
+            </button>
+            <button><text>No</text>
+            <postback>EXITQ</postback>
+            </button>
+            </template>
+        </category>
+        
+        
+        <!-- Shop Path-->
+        <category>
+            <pattern>SHOP</pattern>
+            <template>
+                You are creative, and think outside the box well. For this reason you have been matched with Software Engineering. Would you like to know more about this field?
                 <button> 
             <text>Yes</text>
             <postback>SE</postback>
             </button>
             <button><text>No</text>
-            <postback>EXIT</postback>
+            <postback>EXITQ</postback>
             </button>
             </template>
         </category>
+        
+        <!-- Security Path -->
         <category>
-            <pattern>DR</pattern>
-            <template></template>
+            <pattern>Security</pattern>
+            <template>
+                You value privacy, protection, and keepiong people safe. You have been matched with Cyber Security. Would you like to know more about this profession?
+                <button> 
+            <text>Yes</text>
+            <postback>CSec</postback>
+            </button>
+            <button><text>No</text>
+            <postback>EXITQ</postback>
+            </button>
+            </template>
+        </category>
+        
+       
+        
+         <!-- EXIT FINISH OUTCOME-->
+        
+        <category>
+            <pattern>EXITQ</pattern>
+            <template>Thank you for using my chatbot. I hope you will return :-)</template>
+        </category>
+        
+        <!-- NO, NO MATCH FOUND-->
+        <category>
+        <pattern>NoMatchDetected</pattern>
+        <template>We are very sorry that we could not find you a match. If you would like to try again, please type 'I want to take a quiz'.</template>
+        </category>
+        
+        <!-- Decriptions of each job-->
+        <category>
+            <pattern>DATA</pattern>
+            <template>Data scientists use statistical methods to collect and organize data. Problem-solving skills. 
+            Data scientists must devise solutions to the problems they encounter in data collection and cleaning and in developing statistical models and algorithms.</template>
+        </category>
+        <category>
+            <pattern>IT</pattern>
+            <template>IT Support Specialists will answer and respond to tickets, and IT related issues within a company. They are valued members of a team to keep a working smoothly.</template>
+        </category>
+        <category>
+            <pattern>SE</pattern>
+            <template>Software Engineers are creative developers with a creative ability to design and create software from the ground up. This can use languages like Java, Python, C++, C, C# and more!</template>
+        </category>
+        <category>
+            <pattern>CSec</pattern>
+            <template>Cyber Security officers are instrumental in keeping our data in motion, and at rest safe! They are experts in different security threats, and often will white hat hack their own systems searching for vulnerabilites.</template>
+        </category>
+        <category>
+            <pattern>HTML</pattern>
+            <template>Web Developers use a unique style of language called a Markup Language, and CSS to design beautiful and functional websites for all types of consumers. Creativity and out of the box thinking are a must.</template>
         </category>
 </aiml>
