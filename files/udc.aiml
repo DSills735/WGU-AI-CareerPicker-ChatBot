@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>*</pattern>
+    <template>I do not have an answer for this. Please type 'I want to take a quiz' to begin speaking with me as I am designed to help you find a career in Computer Science. </template>
+  </category>
+
+    <category>
+        <pattern>I want to take a quiz</pattern>
+        <template>
+            I understand you wish to take a quiz regarding career advisory. I am programmed to understand 
+            the best wishes for future computer scientists. This quiz will be a handful of questions, and will narrow  
+            you down to 5 areas of C.S. Do you wish to continue?
+        
+        <button>
+            <text>Yes, please elevate my career!</text>
+            <postback>quiz</postback>
+        </button>
+        <button>
+            <text>No, I do not want a job right now.</text>
+            <postback>EXIT</postback>
+        </button>
+   
+        </template> </category>
+        <category>
+            <pattern>EXIT</pattern>
+            <template>
+                Understood. When you want to decide your future, please come back and type 'I want to take a quiz' and I will be here to help!. 
+            </template>
+        </category>
+        
+        <category>
+            <pattern>quiz</pattern>
+            <template>
+                Great, happy to have you! Today I will ask you a few questions to match you with a career path. There are 5 potential outcomes. 
+                Data Scientist, Software Engineer, Cyber Security, Web Developer, IT Support. 
+                The first question is: Do you prefer team sports, or individual sports?
+            
+            <button><text>Team Sports</text>
+            <postback>team sports</postback></button>
+            <button><text>Individual Sports</text>
+            <postback>individual sports</postback></button>
+            </template>
+        </category>
+        <category>
+            <pattern>team sports</pattern>
+            <template>
+                Great, you chose team sports. This tells me you enjoy working with other people. 
+                When you are playing a team sport, would you rather play offense, or defense? Type 'offense' or 'defense'.
+                <button><text>Offense</text>
+                <postback>offense</postback></button>
+                <button><text>Defense</text>
+                <postback>defense</postback></button>
+            </template>
+        </category>
+        <category>
+            <pattern>individual sports</pattern>
+            <template>
+                This tells me you are more detail oriented. You like to react to the play ahead of you. Do you agree?
+            <button> 
+            <text>Yes</text>
+            <postback>YesNextQuestion</postback>
+            </button>
+            <button><text>No</text>
+            <postback>NoNextQuestion</postback>
+            </button>
+            </template>
+        </category>
+        <category>
+            <pattern>defense</pattern>
+            <template>
+                This tells me you are more detail oriented. You like to react to the play ahead of you. 
+                Does this sound like you?
+            <button> 
+            <text>Yes</text>
+            <postback>YesNextQuestion</postback>
+            </button>
+            <button><text>No</text>
+            <postback>NoNextQuestion</postback>
+            </button>
+            </template>
+        </category>
+        
+        <!-- Answer for individual sports with possible outcomes-->
+        <category>
+            <pattern>against someone</pattern>
+            <template>This tells me you would prefer to attack. You like to strategize and are a planner. 
+            Do you agree?
+           <button><text>Yes</text>
+            <postback>YesNextQuestion</postback>
+            </button>
+            <button><text>No</text>
+            <postback>NoNextQuestion</postback>
+            </button></template>
+        </category>
+        <category>
+            <pattern>against the game</pattern>
+            <template>This tells me that you are mentally tough, and have great problem solving abilities. 
+            I believe that you would be a great at IT Support! Do you agree? Type 'Yes' or 'No'. 
+            <button> 
+            <text>Yes</text>
+            <postback>YesNextQuestion</postback>
+            </button>
+            <button><text>No</text>
+            <postback>NoNextQuestion</postback>
+            </button>
+            </template>
+        </category>
+        <!-- YES FINISH OUTCOME-->
+        <category>
+            <pattern>YesFinish</pattern>
+            <template>Congatulations, you have been matched with a career! If you would like more information, please respond with your match!</template>
+        </category>
+        <!-- NO NEXT QUESTION OUTCOME -->
+        <category>
+            <pattern>NoNextQuestion</pattern>
+            <template>
+                Thats too bad. I will ask one more question. Would you rather take art class, or woodshop? Type 'Art' or 'Woodshop'.
+            </template>
+        </category>
+        <!-- YES NEXT QUESTION -->
+        <category>
+            <pattern>YesNextQuestion</pattern>
+        </category>
+        <template>Are you more interested in social studies, or math?
+        <button><text>Social Studies</text>
+        <postback>SS</postback></button>
+        <button><text>Math</text>
+        <postback>math</postback></button>
+        </template>
+        
+        <!-- NO, NO MATCH FOUND-->
+        <pattern>NoMatchDetected</pattern>
+        <template>We are very sorry that we could not find you a match. If you would like to try again, please type 'I want to take a quiz'.</template>
+        
+        <category>
+            <pattern>SS</pattern>
+            <template>
+                You said you prefer Social Studies. I have one more question for you. Would you rather work security at an event, or work as a doctor in the hospital?
+            <button> 
+            <text>Doctor</text>
+            <postback>DR</postback>
+            </button>
+            <button><text>Security</text>
+            <postback>Security</postback>
+            </button>
+            </template>
+        </category>
+        <category>
+            <pattern>Math</pattern>
+            <template>
+                You stated that you like math. I have matched you with Software Engineering! Do you want to learn more about this field?
+                <button> 
+            <text>Yes</text>
+            <postback>SE</postback>
+            </button>
+            <button><text>No</text>
+            <postback>EXIT</postback>
+            </button>
+            </template>
+        </category>
+        <category>
+            <pattern>DR</pattern>
+            <template></template>
+        </category>
+</aiml>
