@@ -121,7 +121,7 @@
         <category>
             <pattern>against the game</pattern>
             <template>This tells me that you are mentally tough, and have great problem solving abilities. 
-            I believe that you would be a great at IT Support! Do you agree? Type 'Yes' or 'No'. 
+            I believe that you would be a great at IT Support! Do you agree?. 
             <button> 
             <text>Yes</text>
             <postback>YNQ</postback>
@@ -269,7 +269,7 @@
         </category>
         <category>
             <pattern>IT</pattern>
-            <template>IT Support Specialists will answer and respond to tickets, and IT related issues within a company. They are valued members of a team to keep a working smoothly.</template>
+            <template>IT Support Specialists will answer and respond to tickets, and IT related issues within a company. They are valued members of a team to keep an office working smoothly, resolving all technical issues.</template>
         </category>
         <category>
             <pattern>SE</pattern>
